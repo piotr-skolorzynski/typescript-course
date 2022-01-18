@@ -1,6 +1,13 @@
-import { Company } from './Company';
-import { User } from './User';
 ///<reference types="@types/google.maps" />
+
+// Instructions to every other class
+// on how they can be an argument to 'addMarker'
+interface Mappable {
+    location:{
+        lat:number;
+        lng:number;
+    }
+}
 
 export class CustomMap {
     private googleMap: google.maps.Map;
@@ -15,17 +22,13 @@ export class CustomMap {
         });
     }
 
-    addUserMarker(user: User):void {
+    addMarker(mappable: Mappable):void {
         new google.maps.Marker({
             map: this.googleMap,
             position: {
-                lat: user.location.lat,
-                lng: user.location.lng
+                lat: mappable.location.lat,
+                lng: mappable.location.lng
             }
         })
-    }
-
-    addCompanyMarker(company: Company): void{
-
     }
 }
