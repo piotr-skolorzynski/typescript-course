@@ -1,34 +1,20 @@
 "use strict";
-//bubble sorting the simplest way and not too effective
-class Sorter {
-    // collection: number[];
-    // constructor(collection: number[]) {
-    //     this.collection = collection;
-    // }
-    // zamiennik tego co powyżej
-    constructor(collection) {
-        this.collection = collection;
-    }
-    sort() {
-        const { length } = this.collection;
-        for (let i = 0; i < length; i++) {
-            for (let j = 0; j < length - i - 1; j++) {
-                //if collection is an array of numbers
-                if (this.collection instanceof Array) {
-                    //collection === number[]
-                    if (this.collection[j] > this.collection[j + 1]) {
-                        const leftHand = this.collection[j];
-                        this.collection[j] = this.collection[j + 1];
-                        this.collection[j + 1] = leftHand;
-                    }
-                }
-                if (typeof this.collection === 'string') {
-                }
-                //if collection is a string
-            }
-        }
-    }
-}
-const sorter = new Sorter([10, 3, -5, 0]);
+Object.defineProperty(exports, "__esModule", { value: true });
+var Sorter_1 = require("./Sorter");
+var LinkedList_1 = require("./LinkedList");
+// const numbersCollection = new NumbersCollection([50, 3, -5, 0]);
+// const sorter = new Sorter(numbersCollection);
+// sorter.sort();
+// console.log(numbersCollection.data);
+// const charactersCollection = new CharactersCollection('Xaayb');
+// const sorter = new Sorter(charactersCollection);
+// sorter.sort();
+// console.log(charactersCollection.data);
+var linkedList = new LinkedList_1.LinkedList();
+linkedList.add(500);
+linkedList.add(-10);
+linkedList.add(-3);
+linkedList.add(4);
+var sorter = new Sorter_1.Sorter(linkedList);
 sorter.sort();
-console.log(sorter.collection);
+linkedList.print();

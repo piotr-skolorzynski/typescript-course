@@ -1,41 +1,24 @@
-//bubble sorting the simplest way and not too effective
+import { Sorter } from './Sorter';
+import { NumbersCollection } from './NumbersCollection';
+import { CharactersCollection } from './CharactersCollection';
+import { LinkedList } from './LinkedList';
 
-class Sorter {
-    // collection: number[];
+// const numbersCollection = new NumbersCollection([50, 3, -5, 0]);
+// const sorter = new Sorter(numbersCollection);
+// sorter.sort();
+// console.log(numbersCollection.data);
 
-    // constructor(collection: number[]) {
-    //     this.collection = collection;
-    // }
-    // zamiennik tego co powyżej
+// const charactersCollection = new CharactersCollection('Xaayb');
+// const sorter = new Sorter(charactersCollection);
+// sorter.sort();
+// console.log(charactersCollection.data);
 
-    constructor(public collection: number[] | string){}
+const linkedList = new LinkedList();
+linkedList.add(500);
+linkedList.add(-10);
+linkedList.add(-3);
+linkedList.add(4);
 
-    sort(): void{
-        const { length } = this.collection;
-        for (let i = 0; i< length; i++) {
-            for (let j = 0; j < length - i - 1; j++) {
-                //if collection is an array of numbers
-                if (this.collection instanceof Array) {
-                    //collection === number[]
-                    if (this.collection[j] > this.collection[j + 1]) {
-                        const leftHand = this.collection[j];
-                        this.collection[j] = this.collection[j + 1];
-                        this.collection[j + 1] = leftHand;
-                    }
-                }
-
-                if (typeof this.collection === 'string') {
-                   
-                }
-
-                //if collection is a string
-
-            }
-        }
-    }
-
-}
-
-const sorter = new Sorter([10, 3, -5, 0]);
+const sorter = new Sorter(linkedList);
 sorter.sort();
-console.log(sorter.collection);
+linkedList.print();
