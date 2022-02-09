@@ -6,4 +6,14 @@ const matches = fs.readFileSync('football.csv', {
     return row.split(',');
 })
 
-console.log(matches);
+let manUnitedWins = 0;
+
+for (let match of matches) {
+    if (match[1] === 'Man United' && match[5] === 'H') {
+        manUnitedWins += 1;
+    } else if (match[2] === 'Man United' && match[6] === 'A') {
+        manUnitedWins += 1;
+    }
+}
+
+console.log(`Man United won ${manUnitedWins} games`);
