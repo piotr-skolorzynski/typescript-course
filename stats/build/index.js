@@ -9,12 +9,18 @@ const matches = fs_1.default.readFileSync('football.csv', {
 }).split('\n').map((row) => {
     return row.split(',');
 });
+var MatchResult;
+(function (MatchResult) {
+    MatchResult["HOME_WIN"] = "H";
+    MatchResult["AWAY_WIN"] = "A";
+    MatchResult["DRAW"] = "D";
+})(MatchResult || (MatchResult = {}));
 let manUnitedWins = 0;
 for (let match of matches) {
-    if (match[1] === 'Man United' && match[5] === 'H') {
+    if (match[1] === 'Man United' && match[5] === MatchResult.HOME_WIN) {
         manUnitedWins += 1;
     }
-    else if (match[2] === 'Man United' && match[6] === 'A') {
+    else if (match[2] === 'Man United' && match[6] === MatchResult.HOME_WIN) {
         manUnitedWins += 1;
     }
 }
