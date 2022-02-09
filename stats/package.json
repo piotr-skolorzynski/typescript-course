@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "dependencies": {
+    "@types/node": "^17.0.16",
+    "concurrently": "^7.0.0",
+    "nodemon": "^2.0.15"
+  },
   "scripts": {
     "start:build": "tsc -w",
     "start:run": "nodemon build/index.js",
