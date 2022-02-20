@@ -12,14 +12,4 @@ matchReader.load();
 
 // matchReader.matches
 
-let manUnitedWins = 0;
-
-for (let match of matchReader.matches) {
-  if (match[1] === 'Man United' && match[5] === MatchResult.HOME_WIN) {
-    manUnitedWins += 1;
-  } else if (match[2] === 'Man United' && match[5] === MatchResult.AWAY_WIN) {
-    manUnitedWins += 1;
-  }
-}
-
-console.log(`Man United won ${manUnitedWins} games`);
+// console.log(`Man United won ${manUnitedWins} games`);
