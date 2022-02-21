@@ -1,13 +1,16 @@
 import { User } from './models/User';
 
 const user = new User({ name: 'skolo', age: 39 });
-console.log(user.get('name'));
-console.log(user.get('age'));
 
-user.set({ name: 'Stefan', age: 19 });
-console.log(user.get('name'));
-console.log(user.get('age'));
+user.on('change', () => {
+  console.log('change #1');
+});
+user.on('change', () => {
+  console.log('change #2');
+});
+user.on('save', () => {
+  console.log('save was triggered');
+});
 
-user.set({ age: 40 });
-console.log(user.get('age'));
-console.log(user.get('name'));
+user.trigger('change');
+user.trigger('save');
