@@ -1,6 +1,9 @@
-import axios from 'axios';
-import { BASE_URL } from './models/User';
+import { User } from './models/User';
 
-// axios.post(`${BASE_URL}/users`, { name: 'Skolo', age: 39 });
+const user = new User({ id: 1 });
 
-axios.get(`${BASE_URL}/users/1`);
+user.fetch();
+
+setTimeout(() => {
+  console.log(user);
+}, 4000);
