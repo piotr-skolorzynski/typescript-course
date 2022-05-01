@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-const BASE_URL = 'http://localhost:3000';
+import { BASE_URL } from './models/User';
 
 // axios.post(`${BASE_URL}/users`, { name: 'Skolo', age: 39 });
 

@@ -1,9 +1,14 @@
+import axios, { AxiosResponse } from 'axios';
+
 interface UserProps {
+  id?: number;
   name?: string;
   age?: number;
 }
 
 type Callback = () => void;
+
+export const BASE_URL = 'http://localhost:3000';
 
 export class User {
   events: { [key: string]: Callback[] } = {};
@@ -33,5 +38,13 @@ export class User {
     handlers.forEach((callback) => {
       callback();
     });
+  }
+
+  fetch(): void {
+    axios
+      .get(`${BASE_URL}/users/${this.get('id')}`)
+      .then((response: AxiosResponse): void => {
+        this.set(response.data);
+      });
   }
 }
