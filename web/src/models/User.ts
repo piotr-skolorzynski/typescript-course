@@ -8,7 +8,7 @@ interface UserProps {
 
 type Callback = () => void;
 
-export const BASE_URL = 'http://localhost:3000';
+export const BASE_URL = 'http://localhost:3000/users';
 
 export class User {
   events: { [key: string]: Callback[] } = {};
@@ -42,9 +42,19 @@ export class User {
 
   fetch(): void {
     axios
-      .get(`${BASE_URL}/users/${this.get('id')}`)
+      .get(`${BASE_URL}/${this.get('id')}`)
       .then((response: AxiosResponse): void => {
         this.set(response.data);
       });
+  }
+
+  save(): void {
+    const id = this.get('id');
+
+    if (id) {
+      axios.put(`${BASE_URL}/${id}`, this.data);
+    } else {
+      axios.post(`${BASE_URL}`, this.data);
+    }
   }
 }
