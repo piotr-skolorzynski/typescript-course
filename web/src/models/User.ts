@@ -15,7 +15,7 @@ export class User {
   }
 
   set(update: UserProps): void {
-    Object.assign(this.data, update); //overwrite this.data with update object
+    Object.assign(this.data, update); //it overwrites this.data with update object
   }
 
   on(eventName: string, callback: Callback): void {
