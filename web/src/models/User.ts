@@ -10,7 +10,7 @@ interface UserProps {
 export const BASE_URL = 'http://localhost:3000/users';
 
 export class User {
-  events: Eventing = new Eventing();
+  public events: Eventing = new Eventing();
 
   constructor(private data: UserProps) {}
 
