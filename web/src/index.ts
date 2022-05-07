@@ -1,9 +1,10 @@
-import { User } from './models/User';
+import { BASE_URL } from './models/ApiSync';
+import { Collection } from './models/Collection';
 
-const user = User.buildUser({ id: 2 });
+const collection = new Collection(BASE_URL);
 
-user.on('change', () => {
-  console.log(user);
+collection.on('change', () => {
+  console.log(collection);
 });
 
-user.save();
+collection.fetch();
