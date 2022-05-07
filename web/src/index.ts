@@ -1,11 +1,6 @@
-import { BASE_URL } from './models/ApiSync';
-import { Collection } from './models/Collection';
-import { User, UserProps } from './models/User';
+import { User } from './models/User';
 
-const collection = new Collection<User, UserProps>(
-  BASE_URL,
-  (json: UserProps) => User.buildUser(json)
-);
+const collection = User.buildUserCollection();
 
 collection.on('change', () => {
   console.log(collection);

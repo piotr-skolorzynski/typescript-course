@@ -1,7 +1,5 @@
 import axios, { AxiosPromise } from 'axios';
 
-export const BASE_URL = 'http://localhost:3000/users';
-
 interface HasId {
   id?: number;
 }
