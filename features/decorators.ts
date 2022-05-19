@@ -5,25 +5,27 @@ class Boat {
     return `This boat color is ${this.color}`;
   }
 
-  @logError
+  @logError('Ooops, boat was sunk in ocean')
   pilot(): void {
     throw new Error();
   }
 }
 
-function logError(
-  target: any,
-  key: string,
-  descriptor: PropertyDescriptor
-): void {
-  const method = descriptor.value;
+function logError(errorMessage: string) {
+  return function (
+    target: any,
+    key: string,
+    descriptor: PropertyDescriptor
+  ): void {
+    const method = descriptor.value;
 
-  descriptor.value = function () {
-    try {
-      method();
-    } catch {
-      console.log('Ooops, boat was sunk');
-    }
+    descriptor.value = function () {
+      try {
+        method();
+      } catch {
+        console.log(errorMessage);
+      }
+    };
   };
 }
 
