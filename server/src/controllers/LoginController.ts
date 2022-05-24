@@ -1,9 +1,10 @@
 import { Request, Response, Router, NextFunction } from 'express';
+import { controller } from './decorators/controller';
 import { get } from './decorators/routes';
 
-@controller('/')
+@controller('/auth')
 class LoginController {
-  @(this.getLogin('/login'))
+  @get('/login')
   getLogin(req: Request, res: Response): void {
     res.send(`
             <form method="POST"> 
